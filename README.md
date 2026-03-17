@@ -26,13 +26,15 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+the game's purpose is to make the user guess a random number between 1-20 for easy, 1-50 for medium, and 1-100 for hard levels
 - [ ] Detail which bugs you found.
+I found bugs when clicking ente button, the difficulty of each level and Secret on Developer Debug Tools 
 - [ ] Explain what fixes you applied.
-
+I applied changes in clicking the button, difficulty, for each level to only have a right number between the range, for developer debug info to not state the right number but a random number to always be ±1–5 away from the real number, never the real number itself
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- ![alt text](image.png)
 
 ## 🚀 Stretch Features
 
-- [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+- ![alt text](image-1.png)

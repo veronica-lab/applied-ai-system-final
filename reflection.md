@@ -52,7 +52,7 @@ x
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
-because it was giving the right answer instead of a clue. 
+The secret number kept changing because Streamlit reruns the script after user interactions. If the secret number is created with random.randint() outside session state, it can reset every time the user submits a guess. I fixed this by storing the secret number inside st.session_state so it stays stable until the user starts a new game. 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 Streamlit reruns your app every interaction 
 - What change did you make that finally gave the game a stable secret number?

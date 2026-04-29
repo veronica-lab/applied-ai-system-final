@@ -1,34 +1,8 @@
 import random
 import streamlit as st
-#broken here
-def get_range_for_difficulty(difficulty: str):
-    if difficulty == "Easy":
-        return 1, 20
-    if difficulty == "Normal":
-        return 1, 50
-    if difficulty == "Hard":
-        return 1, 100
-    return 1, 50
+from logic_utils import get_range_for_difficulty, parse_guess, check_guess, update_score
 
 
-def parse_guess(raw: str):
-    if raw is None:
-        return False, None, "Enter a guess."
-
-    if raw == "":
-        return False, None, "Enter a guess."
-
-    try:
-        if "." in raw:
-            value = int(float(raw))
-        else:
-            value = int(raw)
-    except Exception:
-        return False, None, "That is not a number."
-
-    return True, value, None
-
-#new function to validate guess is within range
 def validate_range(value: int, low: int, high: int):
     if value < low:
         return False, f"Number must be at least {low}."
@@ -36,36 +10,6 @@ def validate_range(value: int, low: int, high: int):
         return False, f"Number must be no more than {high}."
     return True, None
 
-
-def check_guess(guess, secret):
-    try:
-        secret_int = int(secret)
-    except (ValueError, TypeError):
-        secret_int = secret
-
-    if guess == secret_int:
-        return "Win", "🎉 Correct!"
-    if guess > secret_int:
-        return "Too High", "📉 Go LOWER!"
-    return "Too Low", "📈 Go HIGHER!"
-
-
-def update_score(current_score: int, outcome: str, attempt_number: int):
-    if outcome == "Win":
-        points = 100 - 10 * (attempt_number + 1)
-        if points < 10:
-            points = 10
-        return current_score + points
-
-    if outcome == "Too High":
-        if attempt_number % 2 == 0:
-            return current_score + 5
-        return current_score - 5
-
-    if outcome == "Too Low":
-        return current_score - 5
-
-    return current_score
 
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
 

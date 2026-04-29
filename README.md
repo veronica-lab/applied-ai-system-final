@@ -161,3 +161,8 @@ applied-ai-system-final/
 ```bash
 pip install -r requirements.txt
 python -m streamlit run app.py
+
+
+
+## Note
+One stretch feature attempted was a high score tracker across games, but it was not included in the final version because it introduced instability close to submission. I prioritized core game reliability, bug fixes, documentation, and testing evidence.
